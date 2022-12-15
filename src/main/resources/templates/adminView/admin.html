@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin</title>
+</head>
+<body>
+<h1>Spring boot security page for admins</h1>
+<p th:text="'Username: ' + ${admin.getUsername()}">Username</p>
+<p th:text="'Password: ' + ${admin.getPassword()}">Password</p>
+<p th:text="'FirstName: ' + ${admin.getFirstname()}">FirstName</p>
+<p th:text="'LastName: ' + ${admin.getLastname()}">LastName</p>
+<p th:text="'Email: ' + ${admin.getEmail()()}">Email</p>
+<p th:text="'Age: ' + ${admin.getAge()}">Age</p>
+<p th:text="'Roles: ' + ${admin.getRoleSet()}">Roles</p>
+
+<form th:action="@{/admin/users}" th:method="GET">
+    <input type="submit" value="Show all users!"/>
+</form>
+
+<br/>
+
+<form th:action="@{/logout}" th:method="POST">
+    <input type="submit" value="logout"/>
+</form>
+
+</body>
+</html>
